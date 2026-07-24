@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="product.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <h2><i class="fa-solid fa-box"></i> Product Management</h2>
+
+    <!-- NAV BUTTONS -->
+    <button onclick="goDashboard()" class="btn">
+        ⬅ Dashboard
+    </button>
+
+    <button onclick="logout()" class="btn logout">
+        Logout
+    </button>
+
+    <br><br>
+
+    <!-- FORM -->
+    <div class="form-box">
+        <input type="text" id="name" placeholder="Product Name">
+        <input type="number" id="buyPrice" placeholder="Buying Price">
+        <input type="number" id="price" placeholder="Price">
+        <input type="number" id="stock" placeholder="Stock">
+
+        <button class="add-btn" onclick="saveProduct()">
+            ➕ Save Product
+        </button>
+    </div>
+
+    <br>
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>price</th>
+                <th>Buying price</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="productTable"></tbody>
+    </table>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="product.js"></script>
+
+</body>
+</html>

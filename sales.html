@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sales Record</title>
+
+<link rel="stylesheet" href="sales.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Sales Records</h2>
+
+    <!-- 🔙 DASHBOARD BUTTON -->
+    <button onclick="goDashboard()" class="btn">
+        ⬅ Back to Dashboard
+    </button>
+
+    <br><br>
+
+    <!-- FORM -->
+    <div class="form">
+
+        <!-- 🔥 DEFAULT OPTION -->
+        <select id="productSelect">
+            <option value="">Select Product</option>
+        </select>
+
+        <input type="number" id="qty" placeholder="Quantity">
+
+        <input type="number" id="price" placeholder="Price" readonly>
+
+        <!-- 💰 DISCOUNT (TZS) -->
+        <input type="number" id="discount" placeholder="Discount (TZS)">
+
+        <button class="add-btn" onclick="saveSale()">
+            Save
+        </button>
+
+    </div>
+
+    <!-- TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Discount (TZS)</th>
+                <th>Total</th>
+                <th>Profit</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="salesTable">
+            <!-- DATA WILL LOAD HERE -->
+        </tbody>
+    </table>
+
+    <!-- SUMMARY -->
+    <h3>Total Sales: <span id="total">0</span> TZS</h3>
+    <h3>Total Profit: <span id="totalProfit">0</span> TZS</h3>
+
+</div>
+
+<script src="sales.js"></script>
+
+</body>
+</html>

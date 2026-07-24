@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<h1>SIMPLE NOTE BOOK FOR SALER</h1>
+
+<!-- 👤 USER INFO -->
+<h3 id="welcome">Welcome</h3>
+<p><b>Admin ID:</b> <span id="sellerId">-</span></p>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <ul>
+        <li id="productNav"><a href="product.html"><i class="fa-solid fa-box"></i> Products</a></li>
+        <li><a href="sales.html"><i class="fa-solid fa-cart-shopping"></i> Sales</a></li>
+        <li><a href="report.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+
+        <!-- Logout button -->
+        <li><button id="logoutBtn">Logout</button></li>
+    </ul>
+</nav>
+
+<div class="main">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <h2><i class="fa-solid fa-store"></i> MyShop</h2>
+
+        <!-- Dark mode -->
+        <button id="toggleDark">
+            <i class="fa-solid fa-moon"></i> Mode
+        </button>
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-box icon"></i>
+            <h3>Total Products</h3>
+            <p id="totalProducts">0</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-cart-shopping icon"></i>
+            <h3>Total Sales</h3>
+            <p id="totalSales">0</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-coins icon"></i>
+            <h3>Revenue</h3>
+            <p id="revenue">0</p>
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-section">
+        <h3>Recent Sales</h3>
+
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody id="salesTable"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- 👉 EXTERNAL JS ONLY -->
+<script src="dashboard.js"></script>
+
+</body>
+</html>

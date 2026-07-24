@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reports</title>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<link rel="stylesheet" href="report.css">
+
+</head>
+
+<body>
+
+<h1>REPORT PAGE</h1>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="sales.html">Sales</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+    <!-- FILTER -->
+    <div>
+        <label>Filter:</label>
+        <select id="filter" onchange="updateChart()">
+            <option value="all">All</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+        </select>
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Sales</h3>
+            <p id="totalSales">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Low Stock</h3>
+            <p id="lowStock">0</p>
+        </div>
+
+    </div>
+
+    <!-- PDF BUTTON -->
+    <button onclick="downloadPDF()">Download PDF</button>
+
+    <!-- GRAPH -->
+    <div class="card">
+        <h3>Sales Graph</h3>
+        <canvas id="salesChart"></canvas>
+    </div>
+
+</div>
+
+
+<script src="report.js"></script>
+
+</body>
+</html>

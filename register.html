@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+ <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<h2>Register</h2>
+
+<input type="text" id="username" placeholder="Username"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<select id="role">
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+</select><br><br>
+
+<button onclick="register()">Register</button>
+
+<script>
+function register() {
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let role = document.getElementById("role").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let sellerId;
+
+    if (role === "admin") {
+
+        // 👑 Admin gets unique SELLER ID
+        sellerId = "SELLER_" + Date.now();
+
+        alert("Your Admin ID is: " + sellerId); // 🔥 show admin id
+
+    } else {
+
+        // 👤 User must enter Admin ID
+        sellerId = prompt("Enter Admin Seller ID:");
+
+        if (!sellerId) {
+            alert("Admin ID is required!");
+            return;
+        }
+    }
+
+    let newUser = {
+        username,
+        password,
+        role,
+        sellerId
+    };
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registered successfully!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
