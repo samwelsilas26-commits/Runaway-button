@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Important Question!</title>
+  <style>
+    /* Reset & Page Centering */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Card Box */
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #e63946;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    /* Buttons Container */
+    .btn-group {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Yes Button Styling */
+    .btn-yes {
+      background-color: #2ec4b6;
+      color: white;
+    }
+
+    .btn-yes:hover {
+      background-color: #20968b;
+      transform: scale(1.1);
+    }
+
+    /* No Button Styling */
+    .btn-no {
+      background-color: #e63946;
+      color: white;
+      position: absolute;
+      right: 50px;
+      transition: all 0.2s ease;
+    }
+
+    /* Success Message (hidden by default) */
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #2ec4b6;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1 id="question">Will you be my best friend? ❤️</h1>
+    
+    <div class="btn-group">
+      <button class="btn-yes" onclick="acceptProposal()">YES!</button>
+      <button class="btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">NO</button>
+    </div>
+
+    <div class="message" id="successMsg">I knew you'd say yes! 🎉🥳</div>
+  </div>
+
+  <script>
+    function moveButton() {
+      const btn = document.getElementById('noBtn');
+      // Calculate random coordinates inside the browser window
+      const x = Math.random() * (window.innerWidth - btn.offsetWidth - 40);
+      const y = Math.random() * (window.innerHeight - btn.offsetHeight - 40);
+      
+      btn.style.position = 'fixed';
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+    }
+
+    function acceptProposal() {
+      document.getElementById('question').innerText = "Awesome! ❤️";
+      document.getElementById('successMsg').style.display = "block";
+      document.getElementById('noBtn').style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
